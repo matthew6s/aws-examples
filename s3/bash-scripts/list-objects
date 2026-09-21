@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "== list objects"
 
 # Check for bucket name
 if [ -z "$1" ]; then
@@ -8,4 +9,6 @@ fi
 
 BUCKET_NAME=$1
 
-aws s3api list-objects
+# https://docs.aws.amazon.com/cli/latest/reference/s3api/list-objects-v2.html
+aws s3api list-objects-v2 \
+--bucket $BUCKET_NAME
